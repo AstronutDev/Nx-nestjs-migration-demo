@@ -50,6 +50,106 @@
           }
         }
       }
+    },
+    "movie-app": {
+      "root": "apps/movie-app",
+      "sourceRoot": "apps/movie-app/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/movie-app",
+            "main": "apps/movie-app/src/main.ts",
+            "tsConfig": "apps/movie-app/tsconfig.app.json",
+            "assets": ["apps/movie-app/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/movie-app/src/environments/environment.ts",
+                  "with": "apps/movie-app/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "movie-app:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/movie-app/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/movie-app"],
+          "options": {
+            "jestConfig": "apps/movie-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "post-app": {
+      "root": "apps/post-app",
+      "sourceRoot": "apps/post-app/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/post-app",
+            "main": "apps/post-app/src/main.ts",
+            "tsConfig": "apps/post-app/tsconfig.app.json",
+            "assets": ["apps/post-app/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/post-app/src/environments/environment.ts",
+                  "with": "apps/post-app/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "post-app:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/post-app/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/post-app"],
+          "options": {
+            "jestConfig": "apps/post-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

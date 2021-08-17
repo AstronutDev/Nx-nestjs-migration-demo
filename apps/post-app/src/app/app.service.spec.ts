@@ -14,8 +14,8 @@ describe('AppService', () => {
   });
 
   describe('getData', () => {
-    it('should return "Welcome to cenima-demo!"', () => {
-      expect(service.getData()).toEqual({ message: 'Welcome to cenima-demo!' });
+    it('should return "Welcome to post-app!"', () => {
+      expect(service.getData()).toEqual({ message: 'Welcome to post-app!' });
     });
   });
 });

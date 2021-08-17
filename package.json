@@ -23,16 +23,23 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "migration:created" : "typeorm migration:create -n myMigration",
+    "migration:generate": "node --require ts-node/register ./node_modules/typeorm/cli.js migration:generate -o -p -n",
+    "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ./ormconfig.js"
+
   },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
+    "@nestjs/typeorm": "^7.1.5",
+    "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.3",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "typeorm": "^0.2.37"
   },
   "devDependencies": {
     "@nestjs/schematics": "^7.0.0",
@@ -41,7 +48,7 @@
     "@nrwl/eslint-plugin-nx": "12.7.1",
     "@nrwl/jest": "12.7.1",
     "@nrwl/linter": "12.7.1",
-    "@nrwl/nest": "12.7.1",
+    "@nrwl/nest": "^12.7.1",
     "@nrwl/node": "12.7.1",
     "@nrwl/tao": "12.7.1",
     "@nrwl/workspace": "12.7.1",

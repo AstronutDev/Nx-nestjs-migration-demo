@@ -29,6 +29,12 @@
   "projects": {
     "cenima-demo": {
       "tags": []
+    },
+    "movie-app": {
+      "tags": []
+    },
+    "post-app": {
+      "tags": []
     }
   }
 }

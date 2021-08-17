@@ -14,10 +14,10 @@ describe('AppController', () => {
   });
 
   describe('getData', () => {
-    it('should return "Welcome to cenima-demo!"', () => {
+    it('should return "Welcome to post-app!"', () => {
       const appController = app.get<AppController>(AppController);
       expect(appController.getData()).toEqual({
-        message: 'Welcome to cenima-demo!',
+        message: 'Welcome to post-app!',
       });
     });
   });
