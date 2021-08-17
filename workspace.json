@@ -1,0 +1,59 @@
+{
+  "version": 2,
+  "projects": {
+    "cenima-demo": {
+      "root": "apps/cenima-demo",
+      "sourceRoot": "apps/cenima-demo/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/cenima-demo",
+            "main": "apps/cenima-demo/src/main.ts",
+            "tsConfig": "apps/cenima-demo/tsconfig.app.json",
+            "assets": ["apps/cenima-demo/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/cenima-demo/src/environments/environment.ts",
+                  "with": "apps/cenima-demo/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "cenima-demo:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/cenima-demo/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/cenima-demo"],
+          "options": {
+            "jestConfig": "apps/cenima-demo/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/nest"
+  },
+  "defaultProject": "cenima-demo"
+}
